@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_blue"
-    tools:context=".signup_page">
+    tools:context=".SignUp">
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editText2"
@@ -66,7 +66,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="150dp"
         android:layout_marginEnd="260dp"
-        android:text="First Name:"
+        android:text="@string/first_name"
         android:textColor="@color/white"
         android:textSize="14dp" />
 
@@ -80,7 +80,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="227dp"
         android:layout_marginEnd="261dp"
-        android:text="Last Name:"
+        android:text="@string/last_name"
         android:textColor="@color/white"
         android:textSize="14dp" />
 
@@ -108,7 +108,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="381dp"
         android:layout_marginEnd="235dp"
-        android:text="Phone Number:"
+        android:text="@string/phone_number"
         android:textColor="@color/white"
         android:textSize="14dp" />
 
@@ -122,7 +122,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="458dp"
         android:layout_marginEnd="267dp"
-        android:text="Password:"
+        android:text="@string/password"
         android:textColor="@color/white"
         android:textSize="14dp" />
 
@@ -163,7 +163,7 @@
         android:textSize="14dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signupNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -217,14 +217,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.229" />
 
-    <ImageView
-        android:id="@+id/button"
+    <ImageButton
+        android:id="@+id/backtomain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="14dp"
         android:layout_marginTop="40dp"
+        android:background="@color/transparent"
         app:srcCompat="@drawable/back_button" />
 
     <com.google.android.material.textfield.TextInputLayout
