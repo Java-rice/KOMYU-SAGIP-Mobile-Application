@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">KOMYU-SAGIP</string>
+    <string name="app_name">Komyu-Sagip</string>
+    <string name="signup">Signup</string>
 </resources>
