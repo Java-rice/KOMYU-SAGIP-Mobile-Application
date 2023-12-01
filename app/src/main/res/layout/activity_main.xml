@@ -22,4 +22,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+=======
 </RelativeLayout>
+>>>>>>> d6dd4ba3f4e1cece40bdf1407b80d76d71ce8e49
+=======
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> origin
