@@ -5,58 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary_blue"
     tools:context=".signup_page">
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText"
+        android:id="@+id/editText2"
         android:layout_width="304dp"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="249dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Enter your first name" />
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="326dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/secondary_red"
+        android:hint="@string/entry_lastName"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="304dp"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="172dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Enter your first name" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="205dp"
-        android:text="Create an Account"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="10dp"
-        android:layout_height="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="38dp"
-        android:text="Button" />
+        android:layout_marginEnd="28dp"
+        android:background="@color/secondary_red"
+        android:hint="@string/entry_firstName"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textView2"
@@ -65,10 +48,13 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="65dp"
         android:layout_marginTop="118dp"
-        android:layout_marginEnd="73dp"
-        android:text="Please provide the following information:" />
+        android:layout_marginEnd="65dp"
+        android:text="Please provide the following information:"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/textView3"
@@ -77,10 +63,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="150dp"
-        android:layout_marginEnd="256dp"
-        android:text="First Name:" />
+        android:layout_marginEnd="260dp"
+        android:text="First Name:"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -89,10 +77,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="227dp"
-        android:layout_marginEnd="257dp"
-        android:text="Last Name:" />
+        android:layout_marginEnd="261dp"
+        android:text="Last Name:"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textView5"
@@ -101,10 +91,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="304dp"
-        android:layout_marginEnd="235dp"
-        android:text="Email Address:" />
+        android:layout_marginEnd="239dp"
+        android:text="@string/email"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textView6"
@@ -113,10 +105,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="381dp"
-        android:layout_marginEnd="231dp"
-        android:text="Phone Number:" />
+        android:layout_marginEnd="235dp"
+        android:text="Phone Number:"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/textView7"
@@ -125,64 +119,117 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="458dp"
-        android:layout_marginEnd="263dp"
-        android:text="Password:" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText2"
-        android:layout_width="304dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="326dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Enter your first name" />
+        android:layout_marginEnd="267dp"
+        android:text="Password:"
+        android:textColor="@color/white"
+        android:textSize="14dp" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/editText3"
         android:layout_width="304dp"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="403dp"
-        android:layout_marginEnd="24dp"
-        android:hint="Enter your first name" />
+        android:layout_marginEnd="28dp"
+        android:background="@color/secondary_red"
+        android:hint="@string/entry_phone"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14dp" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
         android:layout_width="304dp"
-        android:layout_height="wrap_content"
+        android:layout_height="43dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="480dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/secondary_red"
         android:ems="10"
-        android:hint="Enter your password"
-        android:inputType="textPassword" />
+        android:hint="@string/entry_password"
+        android:inputType="textPassword"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14dp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="216dp"
-        android:layout_height="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="72dp"
         android:layout_marginTop="550dp"
         android:layout_marginEnd="72dp"
-        android:text="Sign Up" />
+        android:backgroundTint="@color/primary_red"
+        android:paddingHorizontal="20dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/editText"
+        android:layout_width="304dp"
+        android:layout_height="43dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="249dp"
+        android:layout_marginEnd="28dp"
+        android:background="@color/secondary_red"
+        android:hint="@string/entry_lastName"
+        android:paddingHorizontal="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="177dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="41dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="193dp"
+        android:text="Create an Account"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.229" />
+
+    <ImageView
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="40dp"
+        app:srcCompat="@drawable/back_button" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.google.android.material.textfield.TextInputLayout>
 
 </RelativeLayout>
