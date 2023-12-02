@@ -1,9 +1,22 @@
 <resources>
     <string name="app_name">Komyu-Sagip</string>
     <string name="signup">Signup</string>
+
     <string name="login">Login</string>
     <string name="password">Password:</string>
     <string name="email">Email:</string>
-    <string name="entry_email">Enter your email</string>
+    <string name="entry_email">Enter your email address</string>
     <string name="entry_password">Enter your password</string>
+
+    <string name="entry_firstName">Enter your first name</string>
+    <string name="entry_lastName">Enter your last name</string>
+    <string name="entry_phone">Enter your phone number</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="phone_number">Phone Number:</string>
+
+    <string name="entry_username">Enter your username</string>
+    <string name="search_location">Search your location...</string>
+    <string name="username">Username:</string>
+    <string name="location_selection">Select your location:</string>
 </resources>
