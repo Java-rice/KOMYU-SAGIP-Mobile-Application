@@ -17,10 +17,10 @@ class Login : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val loginClick = findViewById<Button>(R.id.loginauth)
-        loginClick.setOnClickListener {
-            val intent = Intent(this, Home::class.java)
-            startActivity(intent)
-        }
+//        val loginClick = findViewById<Button>(R.id.loginauth)
+//        loginClick.setOnClickListener {
+//            val intent = Intent(this, Home::class.java)
+//            startActivity(intent)
+//        }
     }
 }

@@ -9,7 +9,7 @@
     tools:context=".SignUp">
 
     <LinearLayout
-        android:id="@+id/blinearLayout"
+        android:id="@+id/bLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -56,7 +56,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/blinearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/bLinearLayout" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -171,7 +171,6 @@
             android:textSize="14sp"
             tools:layout_editor_absoluteX="69dp"
             tools:layout_editor_absoluteY="561dp" />
-        >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText3"
@@ -232,10 +231,10 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="72dp"
         android:backgroundTint="@color/primary_red"
-        android:paddingHorizontal="60dp"
         android:text="Sign Up"
         android:textColor="@color/white"
         android:textSize="20sp"
+        android:paddingHorizontal="80dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

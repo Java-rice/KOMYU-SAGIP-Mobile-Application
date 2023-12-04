@@ -1,12 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_blue"
     tools:context=".CreateProfile">
+
+    <LinearLayout
+        android:id="@+id/backLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backtosignup"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_button"
+            tools:layout_editor_absoluteX="17dp" />
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="@string/customize_your_profile"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/uplLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/backLinearLayout">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="176dp"
+            android:layout_height="wrap_content"
+            android:text="@string/upload_your_profile_picture"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backLinearLayout" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/transparent"
+            app:srcCompat="@drawable/image_upload" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uplLayout">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText5"
+            android:layout_width="355dp"
+            android:layout_height="41dp"
+            android:backgroundTint="@color/secondary_red"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/entry_username"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/hint_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/userLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userLayout">
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/location_selection"
+            android:textColor="@color/white"
+            android:textSize="14sp" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText6"
+            android:layout_width="355dp"
+            android:layout_height="41dp"
+            android:backgroundTint="@color/secondary_red"
+            android:backgroundTintMode="add"
+            android:ems="10"
+            android:hint="@string/search_location"
+            android:paddingBottom="10dp"
+            android:textColorHint="@color/hint_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/signupNext2"
@@ -15,145 +140,18 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="522dp"
-        android:layout_marginEnd="72dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="@color/primary_red"
-        android:paddingHorizontal="20dp"
+        android:paddingHorizontal="80dp"
         android:text="Finish"
         android:textColor="@color/white"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText5"
-        android:layout_width="304dp"
-        android:layout_height="43dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="337dp"
-        android:layout_marginEnd="28dp"
-        android:background="@color/secondary_red"
-        android:hint="@string/entry_username"
-        android:paddingHorizontal="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="14dp" />
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editText6"
-        android:layout_width="304dp"
-        android:layout_height="43dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="423dp"
-        android:layout_marginEnd="28dp"
-        android:background="@color/secondary_red"
-        android:hint="@string/search_location"
-        android:paddingHorizontal="20dp"
-        android:textColor="@color/black"
-        android:textColorHint="@color/black"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="315dp"
-        android:layout_marginEnd="260dp"
-        android:text="@string/username"
-        android:textColor="@color/white"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="401dp"
-        android:layout_marginEnd="252dp"
-        android:text="@string/location_selection"
-        android:textColor="@color/white"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="176dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="118dp"
-        android:layout_marginTop="110dp"
-        android:layout_marginEnd="117dp"
-        android:text="Upload your profile picture: "
-        android:textColor="@color/white"
-        android:textSize="14dp" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="41dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="160dp"
-        android:text="Customize your Profile"
-        android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
-
-    <ImageButton
-        android:id="@+id/backtosignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/transparent"
-        app:srcCompat="@drawable/back_button"  />
-
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="149dp"
-        android:background="@color/transparent"
-        app:srcCompat="@drawable/image_upload" />
-
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="344dp"
-        android:layout_marginTop="427dp"
-        android:background="@color/transparent"
-        app:srcCompat="@drawable/locate_button" />
+        app:layout_constraintTop_toBottomOf="@+id/userLayout2"
+        app:layout_constraintVertical_bias="0.029" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
