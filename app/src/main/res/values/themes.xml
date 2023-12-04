@@ -5,8 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.SplashScreen" parent="Base.Theme.KOMYUSAGIP">
-        <item name="android:windowSplashScreenBackground">@color/primary_blue</item>
-        <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_logo_icon_true</item>
+    <style name="Theme.KOMYUSAGIP" parent="Base.Theme.KOMYUSAGIP">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 </resources>
