@@ -86,6 +86,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_firstName"
+            android:textColor="@color/white"
             android:paddingBottom="10dp"
             android:textColorHint="@color/hint_color"
             android:textSize="14sp" />
@@ -120,6 +121,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_lastName"
+            android:textColor="@color/white"
             android:paddingBottom="10dp"
             android:textColorHint="@color/hint_color"
             android:textSize="14sp" />
@@ -153,6 +155,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_email"
+            android:textColor="@color/white"
             android:paddingBottom="10dp"
             android:textColorHint="@color/hint_color"
             android:textSize="14sp" />
@@ -188,6 +191,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_phone"
+            android:textColor="@color/white"
             android:paddingBottom="10dp"
             android:textColorHint="@color/hint_color"
             android:textSize="14sp"
@@ -224,6 +228,7 @@
             android:backgroundTint="@color/secondary_red"
             android:backgroundTintMode="add"
             android:ems="10"
+            android:textColor="@color/white"
             android:hint="@string/entry_password"
             android:inputType="textPassword"
             android:paddingBottom="10dp"

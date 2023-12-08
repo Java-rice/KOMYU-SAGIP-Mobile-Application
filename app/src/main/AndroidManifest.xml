@@ -21,25 +21,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SignUp"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+        <activity
+            android:name=".CreateProfile"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+        <activity
+            android:name=".Home"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+        <activity
+            android:name=".Login"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity
-            android:name=".SignUp">
-        </activity>
-
-        <activity
-            android:name=".CreateProfile">
-        </activity>
-
-        <activity
-            android:name=".Home">
-        </activity>
-
-        <activity
-            android:name=".Login">
-        </activity>
     </application>
 
 </manifest>
