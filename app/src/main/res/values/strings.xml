@@ -1,3 +1,33 @@
 <resources>
-    <string name="app_name">KOMYU-SAGIP</string>
+    <string name="app_name">Komyu-Sagip</string>
+
+    <string name="forgot_pass"><u>Forgot Password?</u></string>
+    <string name="welcome_text">Mabuhay!</string>
+    <string name="signup_message">Want to contribute to the community and make your place safe?</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Login</string>
+    <string name="or_text">OR</string>
+    <string name="login_message">Already have an account?</string>
+    <string name="signup">Signup</string>
+
+    <string name="for_password"><u>Forget Password</u></string>
+    <string name="password">Password:</string>
+    <string name="email">Email:</string>
+    <string name="entry_email">Enter your email address</string>
+    <string name="entry_password">Enter your password</string>
+
+    <string name="entry_firstName">Enter your first name</string>
+    <string name="entry_lastName">Enter your last name</string>
+    <string name="entry_phone">Enter your phone number</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="phone_number">Phone Number:</string>
+    <string name="create_account">Create an Account</string>
+    <string name="entry_username">Enter your username</string>
+    <string name="search_location">Search your location…</string>
+    <string name="username">Username:</string>
+    <string name="location_selection">Select your location:</string>
+    <string name="please_provide_the_following_information">Please provide the following information:</string>
+    <string name="customize_your_profile">Customize your Profile</string>
+    <string name="upload_your_profile_picture">Upload your profile picture:</string>
 </resources>
