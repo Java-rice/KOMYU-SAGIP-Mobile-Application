@@ -42,7 +42,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity
-            android:name=".Profile">
+            android:name=".Profile"
+            android:theme="@style/Theme.KOMYUSAGIP">
         </activity>
 
     </application>
