@@ -11,7 +11,7 @@ class SignUp : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
 
-        val backToMainClick = findViewById<ImageButton>(R.id.backtomain)
+        val backToMainClick = findViewById<ImageButton>(R.id.backtoMain)
         backToMainClick.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
