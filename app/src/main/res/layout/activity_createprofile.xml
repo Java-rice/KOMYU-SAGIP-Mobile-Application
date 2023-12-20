@@ -9,7 +9,7 @@
     tools:context=".CreateProfile">
 
     <Button
-        android:id="@+id/signupNext2"
+        android:id="@+id/createProfileNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

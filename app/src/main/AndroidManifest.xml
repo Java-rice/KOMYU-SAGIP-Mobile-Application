@@ -29,6 +29,10 @@
             android:name=".CreateProfile">
         </activity>
 
+        <activity
+            android:name=".Profile">
+        </activity>
+
     </application>
 
 </manifest>
