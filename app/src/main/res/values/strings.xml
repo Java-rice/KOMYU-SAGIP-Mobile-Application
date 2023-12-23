@@ -30,4 +30,6 @@
     <string name="please_provide_the_following_information">Please provide the following information:</string>
     <string name="customize_your_profile">Customize your Profile</string>
     <string name="upload_your_profile_picture">Upload your profile picture:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
