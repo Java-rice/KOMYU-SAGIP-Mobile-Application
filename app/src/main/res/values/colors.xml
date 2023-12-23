@@ -8,6 +8,7 @@
     <color name="primary_white">#FAF3EE</color>
     <color name="secondary_blue">#457B9D</color>
     <color name="hint_color">#B3FFFFFF</color>
+    <color name="hint_color2">#828282</color>
     <color name="transparent">#00000000</color>
     <color name="gray">#A2A2A2</color>
 </resources>
