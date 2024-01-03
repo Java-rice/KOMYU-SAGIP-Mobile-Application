@@ -11,9 +11,6 @@
         android:iconTint="@color/white"
         android:title="Home" />
     <item
-        android:title=""
-        android:enabled="true"/>
-    <item
         android:id="@+id/bottom_emergency"
         android:title="Emergency"
         android:icon="@drawable/emergency" />
