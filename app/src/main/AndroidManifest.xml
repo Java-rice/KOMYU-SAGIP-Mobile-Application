@@ -41,6 +41,16 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
+        <activity
+            android:name=".Profile"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+
+        <activity
+            android:name=".CreatePost"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+
     </application>
 
 </manifest>
