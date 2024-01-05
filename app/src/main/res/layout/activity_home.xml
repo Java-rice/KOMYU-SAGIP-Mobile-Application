@@ -5,20 +5,15 @@
     android:id="@+id/drawer_Layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_blue"
-    android:foregroundTint="@color/white"
+    android:foregroundGravity="top"
     tools:context=".Home">
-
-    <!--Main toolbar layout-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
-        <!--Bottom Nav Bar-->
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -29,21 +24,37 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:backgroundTint="@color/primary_red"
+                app:contentInsetEnd="0dp"
+                app:contentInsetStart="0dp"
+                app:fabAlignmentMode="center"
                 app:fabCradleMargin="10dp"
                 app:fabCradleRoundedCornerRadius="50dp">
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottomNavigation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:background="@color/transparent"
+                    app:elevation="0dp"
                     app:itemIconSize="35dp"
                     app:itemIconTint="@color/white"
+                    app:itemRippleColor="@color/primary_red"
                     app:itemTextColor="@color/white"
                     app:labelVisibilityMode="labeled"
                     app:menu="@menu/bottom_menu" />
             </com.google.android.material.bottomappbar.BottomAppBar>
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/add_post"
+                android:tint="@color/primary_blue"
+                app:rippleColor="@color/primary_blue"
+                android:tintMode="src_atop"
+                app:layout_anchor="@id/bottomAppBar"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </RelativeLayout>
+
 </androidx.drawerlayout.widget.DrawerLayout>
