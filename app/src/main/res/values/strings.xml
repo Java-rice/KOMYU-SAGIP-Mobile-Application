@@ -53,4 +53,9 @@
     <string name="switchSOS">"Shake to send SOS"</string>
     <string name="profileVerify">"Verify Account"</string>
     <string name="profileSignout">"Sign out"</string>
+
+    <string name="emergency">"Emergency"</string>
+    <string name="emergency_contacts">"Emergency Contacts"</string>
+    <string name="emergency_hotlines">"Emergency Hotlines"</string>
+    <string name="sos">"SOS"</string>
 </resources>
