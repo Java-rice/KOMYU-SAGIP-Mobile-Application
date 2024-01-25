@@ -32,6 +32,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures{
+        dataBinding = true
         viewBinding = true
     }
     buildToolsVersion = "34.0.0"
