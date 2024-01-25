@@ -31,7 +31,7 @@
 
         <TextView
             android:id="@+id/textView1"
-            android:layout_width="270dp"
+            android:layout_width="177dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="@string/create_account"
@@ -114,7 +114,7 @@
             android:textSize="14sp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/last_name"
+            android:id="@+id/editText2"
             android:layout_width="355dp"
             android:layout_height="41dp"
             android:backgroundTint="@color/secondary_red"
@@ -148,7 +148,7 @@
             android:textSize="14sp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email"
+            android:id="@+id/editText"
             android:layout_width="355dp"
             android:layout_height="41dp"
             android:backgroundTint="@color/secondary_red"
@@ -184,7 +184,7 @@
             tools:layout_editor_absoluteY="561dp" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phone_number"
+            android:id="@+id/editText3"
             android:layout_width="355dp"
             android:layout_height="41dp"
             android:backgroundTint="@color/secondary_red"
@@ -222,7 +222,7 @@
             tools:layout_editor_absoluteY="119dp" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/editTextTextPassword"
             android:layout_width="355dp"
             android:layout_height="41dp"
             android:backgroundTint="@color/secondary_red"
