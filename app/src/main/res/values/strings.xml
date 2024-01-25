@@ -33,7 +33,7 @@
     <string name="entry_type_of_crime">Specify the type of crime...</string>
     <string name="entry_description">Add a description...</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="type_of_crime">Add a description...</string>
+    <string name="type_of_crime">Type of Crime:</string>
     <string name="date_of_incident">Date of Incident:</string>
     <string name="time_of_incident">Time of Incident:</string>
     <string name="description">Description:</string>
