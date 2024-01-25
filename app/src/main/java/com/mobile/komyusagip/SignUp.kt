@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobile.komyusagip.model.UserModel
 import java.util.UUID
+import android.text.TextUtils
 
 class SignUp : AppCompatActivity() {
     private lateinit var editTextFirstName: EditText
@@ -38,21 +39,72 @@ class SignUp : AppCompatActivity() {
 
         val signupClick = findViewById<Button>(R.id.signupNext)
         signupClick.setOnClickListener {
-            val sFirstName = editTextFirstName.text.toString()
-            val sLastName = editTextLastName.text.toString()
-            val sEmail = editTextEmail.text.toString()
-            val sPhoneNumber = editTextPhoneNumber.text.toString()
-            val sPassword = editTextPassword.text.toString()
-            val userId = UUID.randomUUID().toString()
+            val sFirstName = editTextFirstName.text.toString().trim()
+            val sLastName = editTextLastName.text.toString().trim()
+            val sEmail = editTextEmail.text.toString().trim()
+            val sPhoneNumber = editTextPhoneNumber.text.toString().trim()
+            val sPassword = editTextPassword.text.toString().trim()
+            val userId = UUID.randomUUID().toString().trim()
 
-            userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
-            db.collection("user").document(userId).set(userModel)
-                .addOnSuccessListener {
-                    startActivity(Intent(this, CreateProfile::class.java))
+            fun isValidEmail(email: String): Boolean {
+                val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+                return email.matches(emailPattern.toRegex())
+            }
+
+            fun validateFields(){
+                editTextFirstName.error = null
+                editTextLastName.error = null
+                editTextEmail.error = null
+                editTextPhoneNumber.error = null
+                editTextPassword.error = null
+
+                var hasError = false
+                if (TextUtils.isEmpty(sFirstName)) {
+                    editTextFirstName.error = "First name is required"
+                    hasError = true
                 }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Error making the account", Toast.LENGTH_SHORT).show()
+
+                if (TextUtils.isEmpty(sLastName)) {
+                    editTextLastName.error = "Last name is required"
+                    hasError = true
                 }
+
+                if (TextUtils.isEmpty(sEmail)) {
+                    editTextEmail.error = "Email is required"
+                    hasError = true
+                } else if (!isValidEmail(sEmail)) {
+                    editTextEmail.error = "Invalid email address"
+                    hasError = true
+                }
+
+                if (TextUtils.isEmpty(sPhoneNumber)) {
+                    editTextPhoneNumber.error = "Phone number is required"
+                    hasError = true
+                } else if (sPhoneNumber.length < 11 || sPhoneNumber.length > 11) {
+                    editTextPhoneNumber.error = "Please enter a 11-digit phone number"
+                    hasError = true
+                }
+
+                if (TextUtils.isEmpty(sPassword)) {
+                    editTextPassword.error = "Password is required"
+                    hasError = true
+                } else if (sPassword.length < 6) {
+                    editTextPassword.error = "Password must be at least 6 characters"
+                    hasError = true
+                }
+
+                if (!hasError) {
+                    userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
+                    db.collection("user").document(userId).set(userModel)
+                        .addOnSuccessListener {
+                            startActivity(Intent(this, CreateProfile::class.java))
+                        }
+                        .addOnFailureListener {
+                            Toast.makeText(this, "Error making the account", Toast.LENGTH_SHORT).show()
+                        }
+                }
+            }
+            validateFields()
         }
     }
 }
