@@ -4,11 +4,22 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.ImageButton
-import android.text.TextUtils
 import android.widget.EditText
+import android.widget.ImageButton
+import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
+import com.mobile.komyusagip.model.UserModel
+import java.util.UUID
 
 class SignUp : AppCompatActivity() {
+    private lateinit var editTextFirstName: EditText
+    private lateinit var editTextLastName: EditText
+    private lateinit var editTextEmail: EditText
+    private lateinit var editTextPassword: EditText
+    private lateinit var editTextPhoneNumber: EditText
+    private lateinit var userModel: UserModel
+
+    private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -19,82 +30,29 @@ class SignUp : AppCompatActivity() {
             startActivity(intent)
         }
 
-        //Signup button click action
+        editTextFirstName = findViewById(R.id.first_name)
+        editTextLastName = findViewById(R.id.editText2)
+        editTextEmail = findViewById(R.id.editText)
+        editTextPhoneNumber = findViewById(R.id.editText3)
+        editTextPassword = findViewById(R.id.editTextTextPassword)
+
         val signupClick = findViewById<Button>(R.id.signupNext)
         signupClick.setOnClickListener {
-            validateFields()
+            val sFirstName = editTextFirstName.text.toString()
+            val sLastName = editTextLastName.text.toString()
+            val sEmail = editTextEmail.text.toString()
+            val sPhoneNumber = editTextPhoneNumber.text.toString()
+            val sPassword = editTextPassword.text.toString()
+            val userId = UUID.randomUUID().toString()
+
+            userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
+            db.collection("user").document(userId).set(userModel)
+                .addOnSuccessListener {
+                    startActivity(Intent(this, CreateProfile::class.java))
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Error making the account", Toast.LENGTH_SHORT).show()
+                }
         }
-    }
-    // Switch activity to create profile
-    private fun proceedToCreateProfile() {
-        val intent = Intent(this, CreateProfile::class.java)
-        startActivity(intent)
-    }
-
-    // Validate input fields
-    private fun validateFields() {
-        val firstname = findViewById<EditText>(R.id.first_name)
-        val lastname = findViewById<EditText>(R.id.last_name)
-        val email = findViewById<EditText>(R.id.email)
-        val phonenumber = findViewById<EditText>(R.id.phone_number)
-        val password = findViewById<EditText>(R.id.password)
-
-        val firstName = firstname.text.toString().trim()
-        val lastName = lastname.text.toString().trim()
-        val eMail = email.text.toString().trim()
-        val phoneNum = phonenumber.text.toString().trim()
-        val pass = password.text.toString().trim()
-
-        // Reset errors
-        firstname.error = null
-        lastname.error = null
-        email.error = null
-        phonenumber.error = null
-        password.error = null
-
-        var hasError = false
-
-        if (TextUtils.isEmpty(firstName)) {
-            firstname.error = "First name is required"
-            hasError = true
-        }
-
-        if (TextUtils.isEmpty(lastName)) {
-            lastname.error = "Last name is required"
-            hasError = true
-        }
-
-        if (TextUtils.isEmpty(eMail)) {
-            email.error = "Email is required"
-            hasError = true
-        } else if (!isValidEmail(eMail)) {
-            email.error = "Invalid email address"
-            hasError = true
-        }
-
-        if (TextUtils.isEmpty(phoneNum)) {
-            phonenumber.error = "Phone number is required"
-            hasError = true
-        } else if (phoneNum.length < 11 || phoneNum.length > 11) {
-            phonenumber.error = "Please enter a 11-digit phone number"
-            hasError = true
-        }
-
-        if (TextUtils.isEmpty(pass)) {
-            password.error = "Password is required"
-            hasError = true
-        } else if (pass.length < 6) {
-            password.error = "Password must be at least 6 characters"
-            hasError = true
-        }
-
-        if (!hasError) {
-            proceedToCreateProfile()
-        }
-    }
-
-    private fun isValidEmail(email: String): Boolean {
-        val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
-        return email.matches(emailPattern.toRegex())
     }
 }
