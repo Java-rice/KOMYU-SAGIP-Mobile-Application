@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/date_picker_border.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <stroke android:color="@color/black" android:width="1dp"/>
+    <!-- Adjust color and width as needed -->
+    <corners android:radius="5dp"/>
+    <!-- Adjust radius as needed for rounded corners -->
+</shape>

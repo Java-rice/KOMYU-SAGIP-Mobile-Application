@@ -28,15 +28,17 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/back_button"
             tools:layout_editor_absoluteX="17dp" />
+
         <TextView
             android:id="@+id/textView8"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/montserrat_bold"
             android:text="@string/customize_your_profile"
             android:textColor="@color/white"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -52,8 +54,9 @@
 
         <TextView
             android:id="@+id/textView9"
-            android:layout_width="176dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/upload_your_profile_picture"
             android:textColor="@color/white"
             android:textSize="14sp"
@@ -86,6 +89,7 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/username"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -120,6 +124,7 @@
             android:id="@+id/textView14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_medium"
             android:text="@string/location_selection"
             android:textColor="@color/white"
             android:textSize="14sp" />
@@ -140,7 +145,7 @@
 
 
     <Button
-        android:id="@+id/signupNext2"
+        android:id="@+id/createProfileNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -148,6 +153,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="64dp"
         android:backgroundTint="@color/primary_red"
+        android:fontFamily="@font/inter_bold"
         android:paddingHorizontal="80dp"
         android:text="Finish"
         android:textColor="@color/white"

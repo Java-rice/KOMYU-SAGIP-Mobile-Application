@@ -30,4 +30,36 @@
     <string name="please_provide_the_following_information">Please provide the following information:</string>
     <string name="customize_your_profile">Customize your Profile</string>
     <string name="upload_your_profile_picture">Upload your profile picture:</string>
+    <string name="entry_type_of_crime">Specify the type of crime...</string>
+    <string name="entry_description">Add a description...</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="type_of_crime">Type of Crime:</string>
+    <string name="date_of_incident">Date of Incident:</string>
+    <string name="time_of_incident">Time of Incident:</string>
+    <string name="description">Description:</string>
+    <string name="test">test</string>
+
+    <string name="editProfile">Edit Profile</string>
+    <string name="editPhoto"><u>Edit Photo</u></string>
+    <string name="entry_updatedFirstName">"Enter your updated your first name..."</string>
+    <string name="entry_updatedLastName">"Enter your updated your last name..."</string>
+    <string name="entry_updatedUsername">"Enter your updated your username..."</string>
+    <string name="location">"Location:"</string>
+    <string name="entry_updatedLocation">"Enter your updated location..."</string>
+    <string name="save">"Save"</string>
+
+    <string name="profile">"Profile"</string>
+    <string name="profileName">"Name"</string>
+    <string name="profileUsername">"Username"</string>
+    <string name="profileLocation">"Location"</string>
+    <string name="switchNotification">"Notification"</string>
+    <string name="switchLocation">"Location"</string>
+    <string name="switchSOS">"Shake to send SOS"</string>
+    <string name="profileVerify">"Verify Account"</string>
+    <string name="profileSignout">"Sign out"</string>
+
+    <string name="emergency">"Emergency"</string>
+    <string name="emergency_contacts">"Emergency Contacts"</string>
+    <string name="emergency_hotlines">"Emergency Hotlines"</string>
+    <string name="sos">"SOS"</string>
 </resources>
