@@ -10,12 +10,14 @@ import android.widget.Toast
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.FirebaseFirestore
 class CreateProfile : AppCompatActivity() {
+    private lateinit var editProfileImage: EditText
     private lateinit var editUsername: EditText
     private lateinit var editLocation: EditText
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createprofile)
+
 
         val backToSignUpClick = findViewById<ImageButton>(R.id.backtosignup)
         backToSignUpClick.setOnClickListener {

@@ -9,7 +9,6 @@ import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobile.komyusagip.model.UserModel
-import java.util.UUID
 import android.text.TextUtils
 
 class SignUp : AppCompatActivity() {
