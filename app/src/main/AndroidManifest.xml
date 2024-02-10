@@ -47,6 +47,11 @@
         </activity>
 
         <activity
+            android:name=".EditProfile"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+
+        <activity
             android:name=".CreatePost"
             android:theme="@style/Theme.KOMYUSAGIP">
         </activity>

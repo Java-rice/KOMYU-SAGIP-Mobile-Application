@@ -10,7 +10,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.mobile.komyusagip.databinding.ActivityHomeBinding
 
-
 class Home  : AppCompatActivity(){
     private lateinit var fragmentManager: FragmentManager
     private lateinit var binding: ActivityHomeBinding

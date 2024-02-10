@@ -10,9 +10,12 @@
     <View
         android:id="@+id/view"
         android:layout_width="380dp"
-        android:layout_height="287dp"
-        android:layout_marginTop="172dp"
+        android:layout_height="630dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/create_post_border"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,43 +115,117 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/type_of_crime"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/date_of_incident"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/AddTypeOfCrime" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/time_of_incident"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.053"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/description"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_bias="0.049"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+
+    <TimePicker
+        android:id="@+id/timePicker"
+        android:layout_width="353dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_for_date_and_time"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/AddTitle"
+        android:id="@+id/AddTypeOfCrime"
         android:layout_width="354dp"
         android:layout_height="39dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/create_post_border"
         android:ems="10"
+        android:hint="@string/entry_type_of_crime"
         android:inputType="text"
         android:paddingBottom="10dp"
-        android:hint="@string/entry_title"
-        android:textColorHint="@color/hint_color2"
         android:textColor="@color/black"
+        android:textColorHint="@color/hint_color2"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <DatePicker
+        android:id="@+id/datePicker"
+        android:layout_width="353dp"
+        android:layout_height="67dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_for_date_and_time"
+        android:datePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/textView25" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/addDesciption"
         android:layout_width="354dp"
         android:layout_height="180dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/create_post_border"
         android:ems="10"
         android:gravity="top"
+        android:hint="@string/entry_description"
         android:inputType="textMultiLine"
         android:paddingBottom="10dp"
-        android:hint="@string/entry_description"
-        android:textColorHint="@color/hint_color2"
         android:textColor="@color/black"
+        android:textColorHint="@color/hint_color2"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/AddTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -164,19 +241,6 @@
         app:srcCompat="@drawable/create_post_uploag_image" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="33dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toBottomOf="@+id/addDesciption"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/create_post_hashtag" />
-
-    <ImageButton
         android:id="@+id/imageButton5"
         android:layout_width="33dp"
         android:layout_height="30dp"
@@ -185,8 +249,8 @@
         android:background="@color/transparent"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.583"
-        app:layout_constraintStart_toEndOf="@+id/imageButton2"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toEndOf="@+id/imageButton"
         app:layout_constraintTop_toBottomOf="@+id/addDesciption"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/create_post_location" />
@@ -198,7 +262,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="514dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="@color/primary_red"
         android:paddingHorizontal="80dp"
         android:text="Submit"
@@ -206,7 +270,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
