@@ -6,10 +6,7 @@ data class UserModel(
     val email: String? = "",
     val phoneNumber: String? = "",
     val password: String? = "",
-    val userId: String = "",
-    val profileImage: String? = "",
-    val username: String? = "",
-    val location: String? = ""
+    val userId: String = ""
 ) {
     fun toMap(): Map<String, String?> {
         return hashMapOf(
@@ -18,9 +15,6 @@ data class UserModel(
             "email" to email,
             "password" to password,
             "phoneNumber" to phoneNumber,
-            "profileImage" to profileImage,
-            "username" to username,
-            "location" to location,
             "userId" to userId
         )
     }
