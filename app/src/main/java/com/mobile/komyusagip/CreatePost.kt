@@ -12,7 +12,7 @@ class CreatePost : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createpost)
 
-        val backToHome = findViewById<ImageButton>(R.id.backtohome4)
+        val backToHome = findViewById<ImageButton>(R.id.backtohome)
         backToHome.setOnClickListener {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)

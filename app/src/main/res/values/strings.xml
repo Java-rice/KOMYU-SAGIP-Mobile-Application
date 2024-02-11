@@ -38,6 +38,19 @@
     <string name="time_of_incident">Time of Incident:</string>
     <string name="description">Description:</string>
     <string name="test">test</string>
+    <string-array name="typeOfCrime">
+        <item>Theft</item>
+        <item>Rape</item>
+        <item>Physical Injury</item>
+        <item>Robbery</item>
+        <item>Murder</item>
+        <item>Carnapping</item>
+        <item>Kidnapping</item>
+        <item>Scam</item>
+        <item>Gang Crime</item>
+        <item>Child Abuse</item>
+        <item>Others</item>
+    </string-array>
 
     <string name="editProfile">Edit Profile</string>
     <string name="editPhoto"><u>Edit Photo</u></string>
@@ -63,17 +76,5 @@
     <string name="emergency_hotlines">"Emergency Hotlines"</string>
     <string name="sos">"SOS"</string>
 
-    <string-array name="typeOfCrime">
-        <item>Theft</item>
-        <item>Rape</item>
-        <item>Physical Injury</item>
-        <item>Robbery</item>
-        <item>Murder</item>
-        <item>Carnapping</item>
-        <item>Kidnapping</item>
-        <item>Scam</item>
-        <item>Gang Crime</item>
-        <item>Child Abuse</item>
-        <item>Others</item>
-    </string-array>
+
 </resources>
