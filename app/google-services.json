@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "655271122471",
+    "firebase_url": "https://komyu-sagip-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "komyu-sagip",
+    "storage_bucket": "komyu-sagip.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:655271122471:android:d81569f4e7d3f885d26002",
+        "android_client_info": {
+          "package_name": "com.mobile.komyusagip"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXOySOMBClsTfWmNdT-72rbWObmRAPmzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
