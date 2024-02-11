@@ -9,8 +9,8 @@ import android.widget.ImageButton
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobile.komyusagip.model.UserModel
-import java.util.UUID
 import android.text.TextUtils
+import com.google.firebase.auth.FirebaseAuth
 
 class SignUp : AppCompatActivity() {
     private lateinit var editTextFirstName: EditText
@@ -19,6 +19,7 @@ class SignUp : AppCompatActivity() {
     private lateinit var editTextPassword: EditText
     private lateinit var editTextPhoneNumber: EditText
     private lateinit var userModel: UserModel
+    private lateinit var auth: FirebaseAuth
 
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,7 @@ class SignUp : AppCompatActivity() {
             startActivity(intent)
         }
 
+        auth = FirebaseAuth.getInstance()
         editTextFirstName = findViewById(R.id.first_name)
         editTextLastName = findViewById(R.id.editText2)
         editTextEmail = findViewById(R.id.editText)
@@ -44,7 +46,6 @@ class SignUp : AppCompatActivity() {
             val sEmail = editTextEmail.text.toString().trim()
             val sPhoneNumber = editTextPhoneNumber.text.toString().trim()
             val sPassword = editTextPassword.text.toString().trim()
-            val userId = UUID.randomUUID().toString().trim()
 
             fun isValidEmail(email: String): Boolean {
                 val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
@@ -94,10 +95,13 @@ class SignUp : AppCompatActivity() {
                 }
 
                 if (!hasError) {
+                    val userId = sEmail
                     userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
                     db.collection("user").document(userId).set(userModel)
                         .addOnSuccessListener {
-                            startActivity(Intent(this, CreateProfile::class.java))
+                            val intent = Intent(this, CreateProfile::class.java)
+                            intent.putExtra("userId", userId)  // Pass userId to CreateProfile activity
+                            startActivity(intent)
                         }
                         .addOnFailureListener {
                             Toast.makeText(this, "Error making the account", Toast.LENGTH_SHORT).show()
