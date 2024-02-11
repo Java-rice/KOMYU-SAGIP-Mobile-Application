@@ -8,6 +8,25 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:655271122471:android:3c1637d82405a0d4d26002",
+        "android_client_info": {
+          "package_name": "Komyu.Sagip.v1.s0"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXOySOMBClsTfWmNdT-72rbWObmRAPmzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:655271122471:android:d81569f4e7d3f885d26002",
         "android_client_info": {
           "package_name": "com.mobile.komyusagip"
