@@ -10,6 +10,7 @@ import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import com.mobile.komyusagip.model.UserModel
 import android.text.TextUtils
+import com.google.firebase.auth.FirebaseAuth
 
 class SignUp : AppCompatActivity() {
     private lateinit var editTextFirstName: EditText
@@ -18,6 +19,7 @@ class SignUp : AppCompatActivity() {
     private lateinit var editTextPassword: EditText
     private lateinit var editTextPhoneNumber: EditText
     private lateinit var userModel: UserModel
+    private lateinit var auth: FirebaseAuth
 
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +32,7 @@ class SignUp : AppCompatActivity() {
             startActivity(intent)
         }
 
+        auth = FirebaseAuth.getInstance()
         editTextFirstName = findViewById(R.id.first_name)
         editTextLastName = findViewById(R.id.editText2)
         editTextEmail = findViewById(R.id.editText)
