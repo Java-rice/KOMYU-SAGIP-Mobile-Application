@@ -40,7 +40,8 @@ class SOSTracking : AppCompatActivity() {
             val proceedButton = view.findViewById<Button>(R.id.procSButton)
             proceedButton.setOnClickListener {
                 // Handle the Proceed button click
-                dismiss()
+                val intent = Intent(requireContext(), Home::class.java)
+                startActivity(intent)
                 // Add your logic for proceeding
             }
 
