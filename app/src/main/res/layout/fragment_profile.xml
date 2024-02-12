@@ -49,12 +49,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/ProfilePicture"
             android:layout_width="130dp"
             android:layout_height="130dp"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/profile_picture" />
+            android:src="@drawable/profile_picture" />
 
         <TextView
             android:id="@+id/profileName"
