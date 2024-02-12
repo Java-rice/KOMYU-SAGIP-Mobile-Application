@@ -63,6 +63,14 @@
             android:name=".EmergencyContacts"
             android:theme="@style/Theme.KOMYUSAGIP">
         </activity>
+        <activity
+            android:name=".SOSTracking"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
+        <activity
+            android:name=".EmergencyHotline"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
     </application>
 
 </manifest>
