@@ -15,6 +15,8 @@ class EmergencyContacts : AppCompatActivity()  {
         backToHome.setOnClickListener {
             finish()
         }
+
+
         // Reference the LinearLayout where you want to add the contact containers
         val contactContainerLayout = findViewById<LinearLayout>(R.id.contactCont)
 
