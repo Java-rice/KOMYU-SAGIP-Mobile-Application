@@ -62,4 +62,18 @@
     <string name="emergency_contacts">"Emergency Contacts"</string>
     <string name="emergency_hotlines">"Emergency Hotlines"</string>
     <string name="sos">"SOS"</string>
+
+    <string-array name="typeOfCrime">
+        <item>Theft</item>
+        <item>Rape</item>
+        <item>Physical Injury</item>
+        <item>Robbery</item>
+        <item>Murder</item>
+        <item>Carnapping</item>
+        <item>Kidnapping</item>
+        <item>Scam</item>
+        <item>Gang Crime</item>
+        <item>Child Abuse</item>
+        <item>Others</item>
+    </string-array>
 </resources>

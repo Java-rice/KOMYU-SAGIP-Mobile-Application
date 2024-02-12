@@ -139,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/AddTypeOfCrime" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeOfCrime" />
 
     <TextView
         android:id="@+id/textView26"
@@ -179,16 +179,14 @@
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/AddTypeOfCrime"
+    <Spinner
+        android:id="@+id/spinnerTypeOfCrime"
         android:layout_width="354dp"
         android:layout_height="39dp"
-        android:layout_marginTop="8dp"
         android:background="@drawable/create_post_border"
         android:ems="10"
         android:hint="@string/entry_type_of_crime"
-        android:inputType="text"
-        android:paddingBottom="10dp"
+        android:spinnerMode="dropdown"
         android:textColor="@color/black"
         android:textColorHint="@color/hint_color2"
         android:textSize="14sp"
