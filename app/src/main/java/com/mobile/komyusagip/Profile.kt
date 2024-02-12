@@ -3,6 +3,7 @@ package com.mobile.komyusagip
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -11,9 +12,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.squareup.picasso.Picasso
+import de.hdodenhof.circleimageview.CircleImageView
+
 class Profile : AppCompatActivity() {
 
-    private lateinit var profilePicture: ImageView
+    private lateinit var profilePicture: CircleImageView
     private lateinit var profileName: TextView
     private lateinit var profileUsername: TextView
     private lateinit var profileLocation: TextView
@@ -30,13 +33,14 @@ class Profile : AppCompatActivity() {
         profileUsername = findViewById(R.id.ProfileUsername)
         profileLocation = findViewById(R.id.ProfileLocation)
 
+
         val editProfileClick = findViewById<Button>(R.id.editProfileNext)
         editProfileClick.setOnClickListener {
             val intent = Intent(this, EditProfile::class.java)
             startActivity(intent)
         }
 
-        val signOutButton = findViewById<LinearLayout>(R.id.signOutLayout)
+        val signOutButton = findViewById<TextView>(R.id.SignOut)
         signOutButton.setOnClickListener {
             auth.signOut()
             startActivity(Intent(this, MainActivity::class.java))
