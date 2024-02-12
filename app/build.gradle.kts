@@ -55,4 +55,5 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.6.1")
     implementation ("com.jakewharton.picasso:picasso2-okhttp3-downloader:1.1.0")
     implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation ("com.squareup.picasso:picasso:2.8")
 }
