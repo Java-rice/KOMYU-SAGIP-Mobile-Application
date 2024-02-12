@@ -12,4 +12,5 @@
     <color name="transparent">#00000000</color>
     <color name="gray">#A2A2A2</color>
     <color name="emergency_button_color">#457B9D</color>
+    <color name="green">#00890E</color>
 </resources>
