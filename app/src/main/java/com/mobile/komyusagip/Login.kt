@@ -3,40 +3,36 @@ package com.mobile.komyusagip
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.mobile.komyusagip.databinding.ActivityLoginBinding
 
 class Login : AppCompatActivity() {
-    private lateinit var editTextEmail: EditText
-    private lateinit var editTextPassword: EditText
+    private lateinit var binding: ActivityLoginBinding
     private val auth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val backToMain = findViewById<ImageButton>(R.id.back)
-        backToMain.setOnClickListener {
+        binding.back.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
-        editTextEmail = findViewById(R.id.email)
-        editTextPassword = findViewById(R.id.enterPassword)
-
         val loginClick = findViewById<Button>(R.id.loginAuth)
         loginClick.setOnClickListener {
-            val sEmail = editTextEmail.text.toString().trim()
-            val sPassword = editTextPassword.text.toString().trim()
+            val sEmail = binding.email.text.toString().trim()
+            val sPassword = binding.enterPassword.text.toString().trim()
 
             auth.signInWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener {
                 if(it.isSuccessful){
                     val intent = Intent(this, Home::class.java)
                     startActivity(intent)
                 } else {
-                    Toast.makeText(this, "There is an error logging you in.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Account doesn't exists.", Toast.LENGTH_SHORT).show()
                 }
             }
         }
