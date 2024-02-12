@@ -17,7 +17,7 @@ class EmergencyFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_emergency, container, false)
 
-        val contactClick = view?.findViewById<Button>(R.id.textView10)
+        val contactClick = view?.findViewById<Button>(R.id.emergency_contact_button)
         contactClick?.setOnClickListener {
             val intent = Intent(requireContext(), EmergencyContacts::class.java)
 
