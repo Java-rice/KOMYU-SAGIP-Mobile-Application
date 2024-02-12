@@ -1,18 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_blue"
-    tools:context=".ReportsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".EmergencyFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Reports"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/reportstitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+            <TextView
+                android:id="@+id/reports"
+                android:layout_width="221dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:text="Reports"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"
+                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Crime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/reportstitle">
+            <TextView
+                android:id="@+id/crimeheat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:text="Crime Heat Map"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"
+                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+        <View
+            android:id="@+id/br1"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="3dp"
+            android:layout_height="4dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/Crime"/>
+        <LinearLayout
+            android:id="@+id/reportmapcont"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/white"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Crime">
+        </LinearLayout>
+        <View
+            android:id="@+id/br2"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="16dp"
+
+            android:layout_height="4dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/reportmapcont"/>
+        <LinearLayout
+            android:id="@+id/dropdowns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/br2">
+
+            <!-- Spinner for Selecting Location -->
+            <Spinner
+                android:id="@+id/locationSpinner"
+                style="@style/RoundedSpinner"
+                android:layout_width="0dp"
+                android:background="#EFA8A6"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="20dp"/>
+
+            <!-- Spinner for Selecting Type of Crime -->
+            <Spinner
+                android:id="@+id/crimeTypeSpinner"
+                style="@style/RoundedSpinner"
+                android:layout_width="0dp"
+                android:background="#EFA8A6"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="20dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/dropdowns">
+
+            <!-- First Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#3871C1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            <!-- Add your views for the first container here -->
+
+            </LinearLayout>
+
+            <!-- Second Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#3871C1"
+                android:orientation="horizontal">
+
+                <!-- Add your views for the second container here -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/first">
+
+            <!-- First Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#E56B6F"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Add your views for the first container here -->
+
+            </LinearLayout>
+
+            <!-- Second Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#E56B6F"
+                android:orientation="horizontal">
+
+                <!-- Add your views for the second container here -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
