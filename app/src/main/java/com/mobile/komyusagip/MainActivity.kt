@@ -11,13 +11,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+
+    private val auth = FirebaseAuth.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         splashScreen.setKeepOnScreenCondition { false }
         setContentView(R.layout.activity_main)
-
-
 
         val loginButton = findViewById<Button>(R.id.login_click)
         loginButton.setOnClickListener {
@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
         val buttonClick = findViewById<Button>(R.id.button_click)
         buttonClick.setOnClickListener {
             startActivity(Intent(this, SignUp::class.java))
+        }
+
+        if (auth.currentUser != null){
+                startActivity(Intent(this, Home::class.java))
+                finish()
         }
     }
 }

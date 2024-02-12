@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.firestore.FirebaseFirestore
@@ -35,6 +36,7 @@ class CreateProfile : AppCompatActivity() {
         binding.imageButton.setOnClickListener {
             selectImage.launch("image/*")
         }
+
 
         binding.createProfileNext.setOnClickListener {
             val sUsername = binding.editText5.text.toString().trim()
@@ -76,6 +78,11 @@ class CreateProfile : AppCompatActivity() {
                     Toast.makeText(this, "Error uploading image: ${uploadImageError.message}", Toast.LENGTH_SHORT).show()
                 }
         }
+        binding.imageButton.apply {
+            setImageURI(imageUri)
+            scaleType = ImageView.ScaleType.CENTER_CROP // or FIT_CENTER
+        }
+
     }
 }
 
