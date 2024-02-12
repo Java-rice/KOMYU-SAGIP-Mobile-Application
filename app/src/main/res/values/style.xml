@@ -6,5 +6,6 @@
     </style>
     <style name="RoundedSpinner" parent="Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/rounded_spinner_background</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 </resources>

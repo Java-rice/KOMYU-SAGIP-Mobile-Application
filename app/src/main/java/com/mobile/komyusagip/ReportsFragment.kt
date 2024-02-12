@@ -19,8 +19,8 @@ class ReportsFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_reports, container, false)
 
         // Sample data for location and type of crime
-        val locations = arrayOf("Location 1", "Location 2", "Location 3")
-        val crimeTypes = arrayOf("Type 1", "Type 2", "Type 3")
+        val locations = arrayOf("Select Locations:","Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6")
+        val crimeTypes = arrayOf("Select Crime:","Bribery","Abuse","Murder", "Rape", "Holdup", "Snatch")
 
         // ArrayAdapter for populating the Spinners
         val locationAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, locations)
