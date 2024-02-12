@@ -1,15 +1,19 @@
 package com.mobile.komyusagip
 
+import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
 
 class EditProfile : AppCompatActivity() {
@@ -19,10 +23,31 @@ class EditProfile : AppCompatActivity() {
     private lateinit var profileLocation: TextView
     private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
+    private val storage = FirebaseStorage.getInstance()
+    private var imageUrl: String? = null
+
+    private val getContent = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+            val selectedImageUri: Uri? = data?.data
+            selectedImageUri?.let {
+                // Handle the selected image URI here
+                uploadImageToStorage(selectedImageUri)
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_profile)
+
+        profilePicture = findViewById(R.id.uploadImage)
+        profilePicture.setOnClickListener {
+            // Open gallery to select an image
+            val intent = Intent(Intent.ACTION_GET_CONTENT)
+            intent.type = "image/*"
+            getContent.launch(intent)
+        }
 
         val backToProfileClick = findViewById<ImageButton>(R.id.backToProfile)
         backToProfileClick.setOnClickListener {
@@ -33,9 +58,26 @@ class EditProfile : AppCompatActivity() {
         saveProfileClick.setOnClickListener {
             validateAndSubmit()
         }
-
     }
 
+    private fun uploadImageToStorage(imageUri: Uri) {
+        val userId = auth.currentUser?.uid
+        userId?.let {
+            val storageRef = storage.reference.child("profileImages").child(userId).child("profile.jpg")
+            val uploadTask = storageRef.putFile(imageUri)
+            uploadTask.addOnSuccessListener { taskSnapshot ->
+                val downloadUrlTask = taskSnapshot.storage.downloadUrl
+                downloadUrlTask.addOnSuccessListener { uri ->
+                    imageUrl = uri.toString()
+                    profilePicture.setImageURI(imageUri)
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed to upload image: ${it.message}", Toast.LENGTH_SHORT).show()
+                }
+            }.addOnFailureListener {
+                Toast.makeText(this, "Failed to upload image: ${it.message}", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
     private fun validateAndSubmit() {
         val entryFirstName = findViewById<TextInputEditText>(R.id.entry_first_name)
@@ -63,17 +105,20 @@ class EditProfile : AppCompatActivity() {
                     if (!profileQuerySnapshot.isEmpty) {
                         val profileDocument = profileQuerySnapshot.documents[0]
 
-                        // Update the fields in the profile document
-                        profileDocument.reference.update(mapOf(
+                        // Update the fields in the profile document including imageUrl
+                        val updateMap = mutableMapOf<String, Any>(
                             "username" to username,
-                            "location" to location,
-                            //"imageUrl" to imageUrl
-                        )).addOnSuccessListener {
-                            // Navigate back to the profile screen after updating
-                            finish()
-                        }.addOnFailureListener { e ->
-                            Toast.makeText(this, "Failed to update profile: ${e.message}", Toast.LENGTH_SHORT).show()
-                        }
+                            "location" to location
+                        )
+                        imageUrl?.let { updateMap["imageUrl"] = it }
+
+                        profileDocument.reference.update(updateMap)
+                            .addOnSuccessListener {
+                                // Navigate back to the profile screen after updating
+                                finish()
+                            }.addOnFailureListener { e ->
+                                Toast.makeText(this, "Failed to update profile: ${e.message}", Toast.LENGTH_SHORT).show()
+                            }
                     }
                 }.addOnFailureListener { e ->
                     Toast.makeText(this, "Failed to fetch profile: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -87,4 +132,3 @@ class EditProfile : AppCompatActivity() {
         }
     }
 }
-
