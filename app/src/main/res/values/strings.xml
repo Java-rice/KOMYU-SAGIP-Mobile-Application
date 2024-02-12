@@ -39,6 +39,7 @@
     <string name="description">Description:</string>
     <string name="test">test</string>
     <string-array name="typeOfCrime">
+        <item></item>
         <item>Theft</item>
         <item>Rape</item>
         <item>Physical Injury</item>

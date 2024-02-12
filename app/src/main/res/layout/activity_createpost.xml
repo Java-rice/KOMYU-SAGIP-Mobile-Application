@@ -184,9 +184,22 @@
         android:layout_width="354dp"
         android:layout_height="39dp"
         android:background="@drawable/create_post_border"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/black"
+        android:textColorHint="@color/hint_color2"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TypeOfCrime" />
+
+    <TextView
+        android:id="@+id/selectedSpinnerTypeOfCrime"
+        android:layout_width="354dp"
+        android:layout_height="39dp"
+        android:background="@drawable/create_post_border"
         android:ems="10"
         android:hint="@string/entry_type_of_crime"
-        android:spinnerMode="dropdown"
         android:textColor="@color/black"
         android:textColorHint="@color/hint_color2"
         android:textSize="14sp"
@@ -202,6 +215,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/border_for_date_and_time"
         android:datePickerMode="spinner"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toBottomOf="@+id/DateOfIncident" />
