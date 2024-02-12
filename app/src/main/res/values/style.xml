@@ -4,4 +4,7 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
+    <style name="RoundedSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/rounded_spinner_background</item>
+    </style>
 </resources>
