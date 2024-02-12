@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,17 +28,38 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupRecyclerView()
 
+        // Set the MostRecent button as selected by default
+        view.findViewById<View>(R.id.MostRecent).isSelected = true
+
+        // Load most recent crime reports by default
+        loadMostRecentCrimeReports()
+
         // Set click listeners for sorting buttons
         view.findViewById<View>(R.id.MostRecent).setOnClickListener {
+            // Set the selected state for the MostRecent button
+            it.isSelected = true
+            // Reset the selected state for the other buttons
+            view.findViewById<View>(R.id.InYourArea).isSelected = false
+            view.findViewById<View>(R.id.CommunityWatch).isSelected = false
+
             loadMostRecentCrimeReports()
         }
         view.findViewById<View>(R.id.InYourArea).setOnClickListener {
             loadInYourAreaCrimeReports()
+            it.isSelected = true
+
+            view.findViewById<View>(R.id.MostRecent).isSelected = false
+            view.findViewById<View>(R.id.CommunityWatch).isSelected = false
         }
         view.findViewById<View>(R.id.CommunityWatch).setOnClickListener {
             loadCommunityWatchCrimeReports()
+            it.isSelected = true
+
+            view.findViewById<View>(R.id.InYourArea).isSelected = false
+            view.findViewById<View>(R.id.MostRecent).isSelected = false
         }
     }
+
 
     private fun setupRecyclerView() {
         adapter = CrimeReportAdapter(emptyList())
@@ -55,7 +75,6 @@ class HomeFragment : Fragment() {
             // Add more crime reports as needed
         )
         adapter.setData(mostRecentCrimeReports)
-        Toast.makeText(requireContext(), "Most Recent clicked", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadInYourAreaCrimeReports() {
@@ -66,7 +85,6 @@ class HomeFragment : Fragment() {
             // Add more crime reports as needed
         )
         adapter.setData(inYourAreaCrimeReports)
-        Toast.makeText(requireContext(), "In Your Area clicked", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadCommunityWatchCrimeReports() {
@@ -77,6 +95,5 @@ class HomeFragment : Fragment() {
             // Add more crime reports as needed
         )
         adapter.setData(communityWatchCrimeReports)
-        Toast.makeText(requireContext(), "Community Watch clicked", Toast.LENGTH_SHORT).show()
     }
 }
