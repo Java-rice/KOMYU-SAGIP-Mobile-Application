@@ -27,13 +27,18 @@ class Login : AppCompatActivity() {
             val sEmail = binding.email.text.toString().trim()
             val sPassword = binding.enterPassword.text.toString().trim()
 
-            auth.signInWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener {
-                if(it.isSuccessful){
-                    val intent = Intent(this, Home::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this, "Account doesn't exists.", Toast.LENGTH_SHORT).show()
+            if (sEmail.isNotEmpty() && sPassword.isNotEmpty()) {
+                auth.signInWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        val intent = Intent(this, Home::class.java)
+                        startActivity(intent)
+                    } else {
+                        // If sign-in fails, display a message to the user.
+                        Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                    }
                 }
+            } else {
+                Toast.makeText(this, "Please enter email and password.", Toast.LENGTH_SHORT).show()
             }
         }
     }
