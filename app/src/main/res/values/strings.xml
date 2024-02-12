@@ -81,5 +81,6 @@
     <string name="mostRecent">"Most Recent"</string>
     <string name="inYourArea">"In Your Area"</string>
     <string name="communityWatch">"Community Watch"</string>
+    <string name="coordinates">try</string>
 
 </resources>
