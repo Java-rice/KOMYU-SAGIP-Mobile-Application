@@ -23,7 +23,7 @@ class CreatePost : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val DropdownTypeOfCrime = findViewById<Spinner>(R.id.spinnerTypeOfCrime)
+        val dropdownTypeOfCrime = findViewById<Spinner>(R.id.spinnerTypeOfCrime)
         val spinnerSelectedValueTextView = findViewById<TextView>(R.id.selectedSpinnerTypeOfCrime)
         val adapter = ArrayAdapter.createFromResource(
             this,
@@ -31,8 +31,8 @@ class CreatePost : AppCompatActivity() {
             android.R.layout.simple_spinner_item
         )
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        DropdownTypeOfCrime.adapter = adapter
-        DropdownTypeOfCrime.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        dropdownTypeOfCrime.adapter = adapter
+        dropdownTypeOfCrime.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
