@@ -61,7 +61,6 @@ class EmergencyFragment : Fragment() {
             val proceedButton = view.findViewById<Button>(R.id.procButton)
             proceedButton.setOnClickListener {
                 // Handle the Proceed button click
-                dismiss()
                 val intent = Intent(requireContext(), SOSTracking::class.java)
                 startActivity(intent)
                 // Add your logic for proceeding
