@@ -64,7 +64,7 @@
 
     <string name="profile">"Profile"</string>
     <string name="profileName">"Name"</string>
-    <string name="profileUsername">"Username"</string>
+    <string name="profileUsername">"@username"</string>
     <string name="profileLocation">"Location"</string>
     <string name="switchNotification">"Notification"</string>
     <string name="switchLocation">"Location"</string>

@@ -3,16 +3,16 @@ package com.mobile.komyusagip
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ImageButton
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.ArrayAdapter
-import android.widget.Spinner
 import com.google.android.material.textfield.TextInputEditText
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CreatePost : AppCompatActivity() {
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_createpost)
@@ -57,24 +57,41 @@ class CreatePost : AppCompatActivity() {
         val addDescription = findViewById<TextInputEditText>(R.id.addDesciption)
         val spinnerSelectedValueTextView = findViewById<TextView>(R.id.selectedSpinnerTypeOfCrime)
 
-        val descriptionAdded = addDescription.text?.isNotBlank() ?: false
-        val typeOfCrimeSelected = spinnerSelectedValueTextView.text.isNotBlank()
+        val description = addDescription.text?.toString()?.trim()
+        val typeOfCrime = spinnerSelectedValueTextView.text.toString()
 
-        if (!typeOfCrimeSelected) {
-            spinnerSelectedValueTextView.error = "Select type of crime"
-        } else {
-            spinnerSelectedValueTextView.error = null
-        }
-
-        if (!descriptionAdded) {
+        if (description.isNullOrEmpty()) {
             addDescription.error = "Add description"
-        } else {
-            addDescription.error = null
+            return
         }
 
-        if (typeOfCrimeSelected && descriptionAdded) {
-            val intent = Intent(this, HomeFragment::class.java)
-            startActivity(intent)
+        // Get current user ID
+        val userId = auth.currentUser?.uid
+        userId?.let { uid ->
+            // Reference to the user's document
+            val userRef = db.collection("user").document(uid)
+
+            // Create a map for the post data
+            val postData = hashMapOf(
+                "description" to description,
+                "typeOfCrime" to typeOfCrime
+            )
+
+            // Add the post to the "post" subcollection of the user's document
+            userRef.collection("post")
+                .add(postData)
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Post submitted successfully", Toast.LENGTH_SHORT).show()
+                    // Redirect user to home screen or any other screen as desired
+                    val intent = Intent(this, Home::class.java)
+                    startActivity(intent)
+                }
+                .addOnFailureListener { e ->
+                    Toast.makeText(this, "Failed to submit post: ${e.message}", Toast.LENGTH_SHORT).show()
+                }
+        } ?: run {
+            // User not authenticated, handle accordingly
+            Toast.makeText(this, "User not authenticated", Toast.LENGTH_SHORT).show()
         }
     }
 }
