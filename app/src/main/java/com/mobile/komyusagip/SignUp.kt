@@ -19,8 +19,8 @@ class SignUp : AppCompatActivity() {
     private lateinit var editTextPassword: EditText
     private lateinit var editTextPhoneNumber: EditText
     private lateinit var userModel: UserModel
-    private lateinit var auth: FirebaseAuth
 
+    private val auth = FirebaseAuth.getInstance()
     private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,6 @@ class SignUp : AppCompatActivity() {
             startActivity(intent)
         }
 
-        auth = FirebaseAuth.getInstance()
         editTextFirstName = findViewById(R.id.first_name)
         editTextLastName = findViewById(R.id.editText2)
         editTextEmail = findViewById(R.id.editText)
@@ -95,17 +94,23 @@ class SignUp : AppCompatActivity() {
                 }
 
                 if (!hasError) {
-                    val userId = sEmail
-                    userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
-                    db.collection("user").document(userId).set(userModel)
-                        .addOnSuccessListener {
-                            val intent = Intent(this, CreateProfile::class.java)
-                            intent.putExtra("userId", userId)  // Pass userId to CreateProfile activity
-                            startActivity(intent)
+                    auth.createUserWithEmailAndPassword(sEmail, sPassword).addOnCompleteListener {
+                        if(it.isSuccessful){
+                            val userId = auth.currentUser?.uid
+                            userModel = UserModel(sFirstName, sLastName, sEmail, sPhoneNumber, sPassword, userId)
+                            db.collection("user").document(userId!!).set(userModel)
+                                .addOnSuccessListener {
+                                    val intent = Intent(this, CreateProfile::class.java)
+                                    intent.putExtra("userId", userId)  // Pass userId to CreateProfile activity
+                                    startActivity(intent)
+                                }
+                                .addOnFailureListener {
+                                    Toast.makeText(this, "Error in saving your information.", Toast.LENGTH_SHORT).show()
+                                }
+                        } else{
+                            Toast.makeText(this, "Error making the account, ${it.exception?.message}", Toast.LENGTH_SHORT).show()
                         }
-                        .addOnFailureListener {
-                            Toast.makeText(this, "Error making the account", Toast.LENGTH_SHORT).show()
-                        }
+                    }
                 }
             }
             validateFields()
