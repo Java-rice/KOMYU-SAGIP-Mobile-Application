@@ -35,10 +35,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/transparent"
-                    app:elevation="0dp"
-                    app:itemIconSize="35dp"
+                    app:elevation="3dp"
+                    app:itemIconSize="20dp"
                     app:itemIconTint="@color/white"
-                    app:itemRippleColor="@color/primary_red"
                     app:itemTextColor="@color/white"
                     app:labelVisibilityMode="labeled"
                     app:menu="@menu/bottom_menu" />
@@ -49,11 +48,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
+                android:contentDescription="Add a new post"
                 android:src="@drawable/add_post"
-                android:tint="@color/primary_blue"
-                app:rippleColor="@color/primary_blue"
-                android:tintMode="src_atop"
-                app:layout_anchor="@id/bottomAppBar"/>
+                android:tintMode="multiply"
+                app:layout_anchor="@+id/bottomAppBar"
+                app:layout_anchorGravity="center"
+                app:maxImageSize="30dp"
+                app:rippleColor="@color/secondary_red"
+                tools:ignore="HardcodedText" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </RelativeLayout>
 

@@ -55,7 +55,10 @@
             android:name=".CreatePost"
             android:theme="@style/Theme.KOMYUSAGIP">
         </activity>
-
+        <activity
+            android:name=".EmergencyContacts"
+            android:theme="@style/Theme.KOMYUSAGIP">
+        </activity>
     </application>
 
 </manifest>
