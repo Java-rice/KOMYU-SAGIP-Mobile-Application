@@ -1,18 +1,343 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primary_blue"
-    tools:context=".ReportsFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    tools:context=".EmergencyFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Reports"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="30sp" />
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/reportstitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
 
-</FrameLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/reports"
+                android:layout_width="221dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:text="Reports"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"
+                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintTop_toTopOf="parent" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Crime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/reportstitle">
+            <TextView
+                android:id="@+id/crimeheat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:text="Crime Heat Map"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"
+                app:layout_constraintStart_toEndOf="@+id/back"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </LinearLayout>
+        <View
+            android:id="@+id/br1"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="3dp"
+            android:layout_height="4dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/Crime"/>
+        <LinearLayout
+            android:id="@+id/reportmapcont"
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:layout_margin="20dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/map"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Crime">
+        </LinearLayout>
+        <View
+            android:id="@+id/br2"
+            android:layout_width="match_parent"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="16dp"
+
+            android:layout_height="4dp"
+            android:background="@android:color/holo_red_light"
+            app:layout_constraintTop_toBottomOf="@+id/reportmapcont"/>
+        <LinearLayout
+            android:id="@+id/dropdowns"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/br2">
+
+            <!-- Spinner for Selecting Location -->
+            <Spinner
+                android:id="@+id/locationSpinner"
+                style="@style/RoundedSpinner"
+                android:layout_width="0dp"
+                android:background="@android:color/holo_red_light"
+                android:layout_weight="1"
+                android:layout_height="25dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:dropDownVerticalOffset="32dp"/>
+
+            <!-- Spinner for Selecting Type of Crime -->
+            <Spinner
+                android:id="@+id/crimeTypeSpinner"
+                style="@style/RoundedSpinner"
+                android:layout_width="0dp"
+                android:background="@android:color/holo_red_light"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:dropDownVerticalOffset="32dp">
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/dropdowns">
+
+            <!-- First Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#3871C1"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/calendar"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+                    <TextView
+                        android:id="@+id/mtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Peek Month"
+                        android:textColor="#000000"
+                        android:textAlignment="inherit"
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText"/>
+                    <TextView
+                        android:id="@+id/monthv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="December"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Second Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#3871C1"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/location"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/htitle"
+                        android:layout_width="94dp"
+                        android:layout_height="wrap_content"
+                        android:text="Highest Incidence"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/monthh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="December"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
+                <!-- Add your views for the second container here -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/reportstitle"
+            app:layout_constraintTop_toBottomOf="@+id/first">
+
+            <!-- First Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="#E56B6F"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/bargraph"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/rtitle"
+                        android:layout_width="94dp"
+                        android:layout_height="wrap_content"
+                        android:text="Total Reports"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/monthr"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="234 reports"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
+                <!-- Add your views for the first container here -->
+
+            </LinearLayout>
+
+            <!-- Second Child LinearLayout -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="#E56B6F"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/trophy"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:textAlignment="center">
+
+                    <TextView
+                        android:id="@+id/rctitle"
+                        android:layout_width="94dp"
+                        android:layout_height="wrap_content"
+                        android:text="Resolved Cases"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText" />
+                    <TextView
+                        android:id="@+id/monthrc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="160 cases"
+                        android:textColor="#FFFFFF"
+                        android:textAlignment="center"
+                        android:layout_gravity="center"
+                        android:textStyle="bold"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:ignore="HardcodedText"/>
+                </LinearLayout>
+                <!-- Add your views for the second container here -->
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

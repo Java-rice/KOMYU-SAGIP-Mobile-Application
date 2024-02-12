@@ -64,7 +64,7 @@
 
     <string name="profile">"Profile"</string>
     <string name="profileName">"Name"</string>
-    <string name="profileUsername">"Username"</string>
+    <string name="profileUsername">"@username"</string>
     <string name="profileLocation">"Location"</string>
     <string name="switchNotification">"Notification"</string>
     <string name="switchLocation">"Location"</string>
@@ -81,5 +81,6 @@
     <string name="mostRecent">"Most Recent"</string>
     <string name="inYourArea">"In Your Area"</string>
     <string name="communityWatch">"Community Watch"</string>
+    <string name="coordinates">try</string>
 
 </resources>
