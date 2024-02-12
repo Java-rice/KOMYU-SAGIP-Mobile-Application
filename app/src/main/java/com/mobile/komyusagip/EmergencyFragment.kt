@@ -1,10 +1,13 @@
 package com.mobile.komyusagip
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
 
 class EmergencyFragment : Fragment() {
     override fun onCreateView(
@@ -12,6 +15,14 @@ class EmergencyFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_emergency, container, false)
+        val view = inflater.inflate(R.layout.fragment_emergency, container, false)
+
+        val contactClick = view?.findViewById<Button>(R.id.textView10)
+        contactClick?.setOnClickListener {
+            val intent = Intent(requireContext(), EmergencyContacts::class.java)
+
+            startActivity(intent)
+        }
+        return view
     }
 }
