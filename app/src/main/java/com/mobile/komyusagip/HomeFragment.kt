@@ -72,6 +72,10 @@ class HomeFragment : Fragment() {
         val mostRecentCrimeReports = listOf(
             CrimeReport("Theft", "Description of theft incident"),
             CrimeReport("Assault", "Description of assault incident"),
+            CrimeReport("Assault", "Description of assault incident"),
+            CrimeReport("Assault", "Description of assault incident"),
+            CrimeReport("Assault", "Description of assault incident"),
+            CrimeReport("Assault", "Description of assault incident"),
             CrimeReport("Pur", "Description of pur incident")
             // Add more crime reports as needed
         )

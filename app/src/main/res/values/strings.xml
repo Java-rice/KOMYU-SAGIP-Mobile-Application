@@ -85,5 +85,7 @@
 
     <string name="like">"Like"</string>
     <string name="comment">"Comment"</string>
+    <string name="incident_details">The incident occurred at %1$s on %2$s at %3$s.</string>
+
 
 </resources>
