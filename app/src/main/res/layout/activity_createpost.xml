@@ -10,7 +10,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="380dp"
-        android:layout_height="630dp"
+        android:layout_height="603dp"
         android:layout_marginTop="176dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
@@ -114,7 +114,6 @@
         android:track="@drawable/switch_track_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/TypeOfCrime"
         android:layout_width="wrap_content"
@@ -132,14 +131,53 @@
         android:id="@+id/DateOfIncident"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/date_of_incident"
         android:textSize="14sp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerTypeOfCrime" />
+        app:layout_constraintTop_toBottomOf="@+id/selectedSpinnerTypeOfCrime" />
+    <LinearLayout
+        android:id="@+id/dateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/DateOfIncident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/dateTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="Selected Date"
+            android:textAlignment="center"
+            android:inputType="datetime"
+            android:textColor="@color/black"
+            android:textColorHint="#777B7E"
+            android:textSize="16sp"
+            android:background="@drawable/border_for_date_and_time"
+            android:padding="8dp"
+            android:focusable="false"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="@+id/view"/>
+
+        <Button
+            android:id="@+id/datePickerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Select Date"
+            android:textAlignment="center"
+            android:background="@drawable/border_for_date_and_time"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/TimeOfIncident"
@@ -152,7 +190,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/datePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/dateLayout" />
 
 
     <TextView
@@ -166,19 +204,47 @@
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.049"
         app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/timePicker" />
+        app:layout_constraintTop_toBottomOf="@+id/timeLayout" />
 
-    <TimePicker
-        android:id="@+id/timePicker"
-        android:layout_width="353dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border_for_date_and_time"
-        android:timePickerMode="spinner"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/TimeOfIncident" />
+    <LinearLayout
+        android:id="@+id/timeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginHorizontal="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/TimeOfIncident"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent">
 
+        <EditText
+            android:id="@+id/timeTextField"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="Selected Time"
+            android:textAlignment="center"
+            android:inputType="none"
+            android:textColorHint="#777B7E"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:background="@drawable/border_for_date_and_time"
+            android:padding="8dp"
+            android:focusable="false"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="@+id/view"/>
+
+        <Button
+            android:id="@+id/timePickerButton"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Select Time"
+            android:textAlignment="center"
+            android:background="#000000"
+            android:textColor="@color/black"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
     <Spinner
         android:id="@+id/spinnerTypeOfCrime"
         android:layout_width="354dp"
@@ -207,18 +273,6 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TypeOfCrime" />
-
-    <DatePicker
-        android:id="@+id/datePicker"
-        android:layout_width="353dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border_for_date_and_time"
-        android:datePickerMode="spinner"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toBottomOf="@+id/DateOfIncident" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/addDesciption"
