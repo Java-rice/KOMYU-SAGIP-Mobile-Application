@@ -2,18 +2,26 @@ package com.mobile.komyusagip
 
 import CrimeReport
 import CrimeReportAdapter
+import android.content.ContentValues.TAG
+
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class HomeFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: CrimeReportAdapter
+
+    private val auth = FirebaseAuth.getInstance()
+    private val db = FirebaseFirestore.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,22 +91,50 @@ class HomeFragment : Fragment() {
     }
 
     private fun loadInYourAreaCrimeReports() {
-        // Implement logic to load crime reports in user's area
-        val inYourAreaCrimeReports = listOf(
-            CrimeReport("Vandalism", "Description of vandalism incident"),
-            CrimeReport("Burglary", "Description of burglary incident")
-            // Add more crime reports as needed
-        )
-        adapter.setData(inYourAreaCrimeReports)
-    }
+        // Get the current user's ID
+        val userId = auth.currentUser?.uid
 
-    private fun loadCommunityWatchCrimeReports() {
-        // Implement logic to load crime reports for community watch
-        val communityWatchCrimeReports = listOf(
-            CrimeReport("Drug Trafficking", "Description of drug trafficking incident"),
-            CrimeReport("Hit and Run", "Description of hit and run incident")
-            // Add more crime reports as needed
-        )
-        adapter.setData(communityWatchCrimeReports)
+        // Check if the user is authenticated
+        userId?.let { uid ->
+            // Reference to the user's "post" subcollection
+            val userPostRef = db.collection("user").document(uid).collection("post")
+
+            // Query Firestore to fetch crime reports in the user's area
+            userPostRef
+                .get()
+                .addOnSuccessListener { documents ->
+                    val crimeReports = mutableListOf<CrimeReport>()
+
+                    for (document in documents) {
+                        val typeOfCrime = document.getString("typeOfCrime")
+                        val description = document.getString("description")
+
+                        typeOfCrime?.let { crimeType ->
+                            description?.let { desc ->
+                                val crimeReport = CrimeReport(crimeType, desc)
+                                crimeReports.add(crimeReport)
+                            }
+                        }
+                    }
+
+                    // Set data to the adapter after populating the crimeReports list
+                    adapter.setData(crimeReports)
+                }
+                .addOnFailureListener { exception ->
+                    // Handle any errors
+                    Log.e(TAG, "Error fetching crime reports: $exception")
+                }
+            }
+        }
+
+
+        private fun loadCommunityWatchCrimeReports() {
+            // Implement logic to load crime reports for community watch
+            val communityWatchCrimeReports = listOf(
+                CrimeReport("Drug Trafficking", "Description of drug trafficking incident"),
+                CrimeReport("Hit and Run", "Description of hit and run incident")
+                // Add more crime reports as needed
+            )
+            adapter.setData(communityWatchCrimeReports)
+        }
     }
-}
