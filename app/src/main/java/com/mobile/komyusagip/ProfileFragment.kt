@@ -53,7 +53,7 @@ class ProfileFragment : Fragment() {
 
         val userId = auth.currentUser?.uid
         userId?.let { uid ->
-            db.collection("user").document(userId).get()
+            db.collection("user").document(uid).get()
                 .addOnSuccessListener { userDocument ->
                     if (userDocument != null) {
                         val firstName = userDocument.getString("firstName") ?: ""
