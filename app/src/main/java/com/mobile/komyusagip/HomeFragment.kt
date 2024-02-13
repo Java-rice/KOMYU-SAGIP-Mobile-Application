@@ -10,10 +10,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.squareup.picasso.Picasso
 
 class HomeFragment : Fragment() {
 
@@ -123,35 +126,66 @@ class HomeFragment : Fragment() {
             val userPostRef = db.collection("user").document(uid).collection("post")
 
             // Query Firestore to fetch crime reports in the user's area
-            userPostRef
-                .get()
-                .addOnSuccessListener { documents ->
-                    val crimeReports = mutableListOf<CrimeReport>()
+            userPostRef.get().addOnSuccessListener { documents ->
+                val crimeReports = mutableListOf<CrimeReport>()
 
-                    for (document in documents) {
-                        val typeOfCrime = document.getString("typeOfCrime")
-                        val description = document.getString("description")
+                // Fetch user profile data
+                val profileRef = db.collection("user").document(uid).collection("profiles")
+                profileRef.get().addOnSuccessListener { profileQuerySnapshot ->
+                    if (!profileQuerySnapshot.isEmpty) {
+                        val profileDocument = profileQuerySnapshot.documents[0]
+                        // Fetch data from the profile document
+                        val imageUrl = profileDocument.getString("imageUrl")
+                        val username = profileDocument.getString("username")
 
-                        typeOfCrime?.let { crimeType ->
-                            description?.let { desc ->
-                                val crimeReport = CrimeReport(crimeType, desc)
-                                crimeReports.add(crimeReport)
+                        // Process each crime report document
+                        for (document in documents) {
+                            val typeOfCrime = document.getString("typeOfCrime")
+                            val description = document.getString("description")
+
+                            typeOfCrime?.let { crimeType ->
+                                description?.let { desc ->
+                                    val crimeReport = CrimeReport(crimeType, desc)
+                                    crimeReports.add(crimeReport)
+                                }
                             }
                         }
-                    }
 
-                    // Set data to the adapter after populating the crimeReports list
-                    adapter.setData(crimeReports)
-                }
-                .addOnFailureListener { exception ->
+                        // Update profile UI
+                        updateProfileUI(requireView(), username, imageUrl)
+
+                        // Set data to the adapter after populating the crimeReports list
+                        adapter.setData(crimeReports)
+                    }
+                }.addOnFailureListener { exception ->
                     // Handle any errors
-                    Log.e(TAG, "Error fetching crime reports: $exception")
+                    Log.e(TAG, "Error fetching profile data: $exception")
                 }
+            }.addOnFailureListener { exception ->
+                // Handle any errors
+                Log.e(TAG, "Error fetching crime reports: $exception")
             }
         }
+    }
+
+    private fun updateProfileUI(view: View, username: String?, imageUrl: String?) {
+        // Update profile picture
+        val profilePicture = view.findViewById<ImageView>(R.id.ProfilePicture)
+        val profileUsername = view.findViewById<TextView>(R.id.ProfileUsername)
+
+        imageUrl?.let {
+            Picasso.get().load(it).into(profilePicture)
+        }
+        // Update username
+        val userWithAtSymbol = "@$username"
+        profileUsername?.text = userWithAtSymbol
+    }
 
 
-        private fun loadCommunityWatchCrimeReports() {
+
+
+
+    private fun loadCommunityWatchCrimeReports() {
             // Implement logic to load crime reports for community watch
             val communityWatchCrimeReports = listOf(
                 CrimeReport("Drug Trafficking", "Description of drug trafficking incident"),
