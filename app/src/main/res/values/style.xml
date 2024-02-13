@@ -6,5 +6,16 @@
     </style>
     <style name="RoundedSpinner" parent="Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/rounded_spinner_background</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Other style attributes -->
+
+        <!-- Define the custom style for TimePicker text color -->
+        <item name="android:timePickerStyle">@style/CustomTimePickerStyle</item>
+    </style>
+
+    <style name="CustomTimePickerStyle" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:textColor">@color/black</item> <!-- Set your desired text color -->
     </style>
 </resources>

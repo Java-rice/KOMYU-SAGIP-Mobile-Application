@@ -1,5 +1,7 @@
 package com.mobile.komyusagip
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -8,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import java.util.Calendar
+import java.util.Locale
 
 class CreatePost : AppCompatActivity() {
     private val auth = FirebaseAuth.getInstance()
@@ -21,6 +25,48 @@ class CreatePost : AppCompatActivity() {
         backToHome.setOnClickListener {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
+        }
+        val timeTextField = findViewById<EditText>(R.id.timeTextField)
+        val timePickerButton = findViewById<Button>(R.id.timePickerButton)
+
+        val timePickerDialog = TimePickerDialog(
+            this,
+            { _, hourOfDay, minute ->
+                val selectedTime = formatTime(hourOfDay, minute)
+                timeTextField.setText(selectedTime)
+            },
+            12, // Initial hour (you can set your own default)
+            0,  // Initial minute (you can set your own default)
+            false // Set to false for 12-hour format
+        )
+
+        timePickerButton.setOnClickListener {
+            timePickerDialog.show()
+        }
+
+        timePickerButton.setOnClickListener {
+            timePickerDialog.show()
+        }
+        val dateTextField = findViewById<EditText>(R.id.dateTextField)
+        val datePickerButton = findViewById<Button>(R.id.datePickerButton)
+        val calendar = Calendar.getInstance()
+        val initialYear = calendar.get(Calendar.YEAR)
+        val initialMonth = calendar.get(Calendar.MONTH)
+        val initialDay = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val datePickerDialog = DatePickerDialog(
+            this,
+            { _, year, month, day ->
+                val selectedDate = formatDate(year, month + 1, day)
+                dateTextField.setText(selectedDate)
+            },
+            initialYear,
+            initialMonth,
+            initialDay
+        )
+
+        datePickerButton.setOnClickListener {
+            datePickerDialog.show()
         }
 
         val dropdownTypeOfCrime = findViewById<Spinner>(R.id.spinnerTypeOfCrime)
@@ -52,7 +98,31 @@ class CreatePost : AppCompatActivity() {
             validateAndSubmit()
         }
     }
+    private fun formatTime(hour: Int, minute: Int): String {
+        val isAM = hour < 12
+        val amPm = if (isAM) "AM" else "PM"
+        val hourFormatted = if (hour % 12 == 0) 12 else hour % 12
+        return String.format(Locale.getDefault(), "%02d:%02d %s", hourFormatted, minute, amPm)
+    }
 
+    private fun formatDate(year: Int, month: Int, day: Int): String {
+        return String.format(Locale.getDefault(), "%02d-%02d-%04d", month, day, year)
+    }
+    private fun showTimePickerDialog(initialHour: Int, initialMinute: Int) {
+        val timePicker = TimePickerDialog(
+            this,
+            TimePickerDialog.OnTimeSetListener { view: TimePicker?, hourOfDay: Int, minute: Int ->
+                // Do something with the selected time
+                val selectedTime = "$hourOfDay:$minute"
+                // You can update the UI or perform any actions with the selected time
+            },
+            initialHour,
+            initialMinute,
+            false // Set to true if you want 24-hour format
+        )
+
+        timePicker.show()
+    }
     private fun validateAndSubmit() {
         val addDescription = findViewById<TextInputEditText>(R.id.addDesciption)
         val spinnerSelectedValueTextView = findViewById<TextView>(R.id.selectedSpinnerTypeOfCrime)
@@ -60,10 +130,19 @@ class CreatePost : AppCompatActivity() {
         val description = addDescription.text?.toString()?.trim()
         val typeOfCrime = spinnerSelectedValueTextView.text.toString()
 
-        if (description.isNullOrEmpty()) {
+        if (typeOfCrime.isNullOrEmpty() && description.isNullOrEmpty()) {
+            spinnerSelectedValueTextView.error = "Please select the type of crime"
+            addDescription.error = "Add description"
+            return
+        } else if (typeOfCrime.isNullOrEmpty()) {
+            spinnerSelectedValueTextView.error = "Please select the type of crime"
+            return
+        } else if (description.isNullOrEmpty()) {
             addDescription.error = "Add description"
             return
         }
+
+
 
         // Get current user ID
         val userId = auth.currentUser?.uid
