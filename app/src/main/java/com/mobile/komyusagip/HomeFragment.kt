@@ -75,19 +75,42 @@ class HomeFragment : Fragment() {
         recyclerView.adapter = adapter
     }
 
+
     private fun loadMostRecentCrimeReports() {
-        // Implement logic to load most recent crime reports
-        val mostRecentCrimeReports = listOf(
-            CrimeReport("Theft", "Description of theft incident"),
-            CrimeReport("Assault", "Description of assault incident"),
-            CrimeReport("Assault", "Description of assault incident"),
-            CrimeReport("Assault", "Description of assault incident"),
-            CrimeReport("Assault", "Description of assault incident"),
-            CrimeReport("Assault", "Description of assault incident"),
-            CrimeReport("Pur", "Description of pur incident")
-            // Add more crime reports as needed
-        )
-        adapter.setData(mostRecentCrimeReports)
+        // Get the current user's ID
+        val userId = auth.currentUser?.uid
+
+        // Check if the user is authenticated
+        userId?.let { uid ->
+            // Reference to the user's "post" subcollection
+            val userPostRef = db.collection("user").document(uid).collection("post")
+
+            // Query Firestore to fetch crime reports in the user's area
+            userPostRef
+                .get()
+                .addOnSuccessListener { documents ->
+                    val crimeReports = mutableListOf<CrimeReport>()
+
+                    for (document in documents) {
+                        val typeOfCrime = document.getString("typeOfCrime")
+                        val description = document.getString("description")
+
+                        typeOfCrime?.let { crimeType ->
+                            description?.let { desc ->
+                                val crimeReport = CrimeReport(crimeType, desc)
+                                crimeReports.add(crimeReport)
+                            }
+                        }
+                    }
+
+                    // Set data to the adapter after populating the crimeReports list
+                    adapter.setData(crimeReports)
+                }
+                .addOnFailureListener { exception ->
+                    // Handle any errors
+                    Log.e(TAG, "Error fetching crime reports: $exception")
+                }
+        }
     }
 
     private fun loadInYourAreaCrimeReports() {
