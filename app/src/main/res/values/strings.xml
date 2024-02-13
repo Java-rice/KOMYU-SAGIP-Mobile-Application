@@ -83,4 +83,7 @@
     <string name="communityWatch">"Community Watch"</string>
     <string name="coordinates">try</string>
 
+    <string name="like">"Like"</string>
+    <string name="comment">"Comment"</string>
+
 </resources>

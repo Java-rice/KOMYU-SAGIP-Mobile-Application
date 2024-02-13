@@ -13,6 +13,38 @@
         android:layout_marginBottom="5dp"
         android:layout_marginTop="10dp">
 
+        <!-- Username and Profile -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="5dp">
+            <LinearLayout
+                android:layout_width="19dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ProfilePicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:clickable="true"
+                    android:background="@color/transparent"
+                    android:src="@drawable/profile_picture" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/profileUsername"
+                android:textColor="@android:color/black"
+                android:textSize="13sp"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+
         <TextView
             android:id="@+id/crimeTypeTextView"
             android:layout_width="wrap_content"
@@ -41,14 +73,14 @@
                 android:id="@+id/likeText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Like"
+                android:text="@string/like"
                 android:textColor="@android:color/black"
                 android:textSize="13sp"/>
 
             <ImageButton
                 android:id="@+id/likeButton"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="19dp"
                 android:clickable="true"
                 android:background="@color/transparent"
                 android:src="@drawable/like_button_selector"
@@ -58,7 +90,7 @@
                 android:id="@+id/commentText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Comment"
+                android:text="@string/comment"
                 android:textColor="@android:color/black"
                 android:textSize="13sp"
                 android:layout_marginStart="20dp"/>
@@ -66,11 +98,10 @@
             <ImageButton
                 android:id="@+id/commentButton"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="19dp"
                 android:background="@color/transparent"
                 android:src="@drawable/comment_button"
                 android:layout_marginStart="5dp"/>
-
         </LinearLayout>
 
 
