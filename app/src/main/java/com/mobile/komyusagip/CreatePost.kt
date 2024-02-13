@@ -130,10 +130,19 @@ class CreatePost : AppCompatActivity() {
         val description = addDescription.text?.toString()?.trim()
         val typeOfCrime = spinnerSelectedValueTextView.text.toString()
 
-        if (description.isNullOrEmpty()) {
+        if (typeOfCrime.isNullOrEmpty() && description.isNullOrEmpty()) {
+            spinnerSelectedValueTextView.error = "Please select the type of crime"
+            addDescription.error = "Add description"
+            return
+        } else if (typeOfCrime.isNullOrEmpty()) {
+            spinnerSelectedValueTextView.error = "Please select the type of crime"
+            return
+        } else if (description.isNullOrEmpty()) {
             addDescription.error = "Add description"
             return
         }
+
+
 
         // Get current user ID
         val userId = auth.currentUser?.uid
