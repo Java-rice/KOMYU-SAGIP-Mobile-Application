@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
-    <ImageButton
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/uploadImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayoutProfile"
-        app:srcCompat="@drawable/image_upload" />
+        android:src="@drawable/image_upload" />
 
     <TextView
         android:id="@+id/editPhoto"
@@ -128,7 +128,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_updatedUsername"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/hint_color"
@@ -210,7 +210,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_updatedLastName"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/hint_color"
@@ -249,7 +249,7 @@
             android:backgroundTintMode="add"
             android:ems="10"
             android:hint="@string/entry_updatedLocation"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:paddingBottom="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/hint_color"

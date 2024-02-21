@@ -124,6 +124,7 @@ class HomeFragment : Fragment() {
         userId?.let { uid ->
             // Reference to the user's "post" subcollection
             val userPostRef = db.collection("user").document(uid).collection("post")
+            val userProfileRef = db.collection("user").document(uid).collection("profiles")
 
             // Query Firestore to fetch crime reports in the user's area
             userPostRef.get().addOnSuccessListener { documents ->
